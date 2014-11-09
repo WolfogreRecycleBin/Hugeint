@@ -14,8 +14,8 @@ class Hugeint
 {
 public:
 	//构造与析构
-	Hugeint(long long num=0, unsigned int rank=0);//ToDo
-	Hugeint(char str[10000]="0");//ToDo
+	Hugeint(long long int num=0, unsigned int rank=0);//ToDo
+	//Hugeint(char str[10000]="0");//ToDo
 	Hugeint & operator=(const Hugeint hi);//ToDo
 	virtual ~Hugeint();//ToDo
 	//重载方括号运算符
@@ -47,10 +47,10 @@ public:
 	friend bool operator< (const Hugeint &hi1, const Hugeint &hi2);//ToDo
 	friend bool operator<=(const Hugeint &hi1, const Hugeint &hi2);//ToDo
 	//重载I/O流运算符
-	friend ostream & operator<<(ostream &out, const Hugeint &hi);//ToDo
+	friend ostream & operator<<(ostream &out, const Hugeint &hi);
 	friend istream & operator>>(istream &in, Hugeint &hi);//ToDo
 protected:
-	void Insert(Node & nd, unsigned int rank);//ToDo			//将nd插入到rank阶数应该存在的位置，可增、改
+	void Insert(int num, unsigned int rank);//ToDo			//将nd插入到rank阶数应该存在的位置，可增、改
 	void Delete(Node & nd);	//ToDo							//删除结点
 	Node & Find(unsigned int rank=0);//ToDo						//寻找返回rank阶数
 	void FixList();//ToDo											//修正链表

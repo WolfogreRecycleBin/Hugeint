@@ -87,6 +87,7 @@ extraResourceOptions=
 [Resource]
 [Other]
 [History]
-Hugeint.cpp,0
-Hugeint.h,0
-Main.cpp,0
+Hugeint.h,70
+Hugeint.cpp,360
+C:\MinGWStudio\MinGW\include\c++\3.4.2\iostream,2988
+Main.cpp,10

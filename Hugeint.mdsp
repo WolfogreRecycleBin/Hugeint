@@ -81,16 +81,12 @@ extraResourceOptions=
 
 [Source]
 1=Hugeint.cpp
-2=Node.cpp
-3=Main.cpp
+2=Main.cpp
 [Header]
 1=Hugeint.h
-2=Node.h
 [Resource]
 [Other]
 [History]
-Hugeint.h,0
 Hugeint.cpp,0
-Node.h,0
-Node.cpp,0
+Hugeint.h,0
 Main.cpp,0

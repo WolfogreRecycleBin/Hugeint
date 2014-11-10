@@ -15,7 +15,7 @@ Hugeint::Hugeint(long long int num, unsigned int rank)//ToDo
 		sign=-1;
 		num=-num;
 	}
-	int h1,h0;
+	long long h1,h0;
 	h0=num%B;
 	h1=num/B;
 	if(h0) Insert(h0,rank);

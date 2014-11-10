@@ -3,7 +3,7 @@
 int main(void)
 {
 	long long lB=B;
-	Hugeint hi(lB*lB-1,10);
+	Hugeint hi;
 	cout<<hi<<endl;
 	cout<<sizeof(short int)<<"   "<<sizeof(int)<<"   "<<sizeof(long long int)<<endl;
 	return 0;

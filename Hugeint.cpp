@@ -23,9 +23,52 @@ Hugeint::Hugeint(long long int num, unsigned int rank)//ToDo
 	return;
 }
 
+Hugeint::Hugeint(const char *str)
+{
+	head=NULL;
+	Insert(0,0);
+	int num=0,rank=0;
+	int i,r_=1;/////////////////////////////////
+	for(i=0;str[i];i++)
+		;
+	for(;i>=0;i++)
+	{
+		if(str[i]<='9' && str[i]>='0')
+			{
+				num
+				j++;
+			}
+	}
+	// iostream io;
+	// int i,j,count=0;
+	// for(i=0;str[i];i++);
+	// char *tstr=new char [i];
+	// for(i=0,j=0;str[i];i++)
+	// {
+	// 	if(str[i]<='9' && str[i]>='0')
+	// 	{
+	// 		tstr[j]=str[i];
+	// 		j++;
+	// 	}
+	// }
+	// tstr[j]='\0';
+	// for(j=0;tstr[j];j++);
+	// for(i=0;i<=j%9-1;++) io<<str[i];
+	// io<<' ';
+	// for(;str[i];i++)
+	// {
+	// 	if//???
+	// }
+}
+
 Hugeint::~Hugeint()
 {
-	//ToDo
+	while(head)
+	{
+		head=head->next;
+		delete head->prior;
+		head->prior=NULL:
+	}
 }
 
 ostream & operator<<(ostream &out, const Hugeint &hi)

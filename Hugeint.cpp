@@ -5,7 +5,7 @@
 using namespace std;
 
 
-Hugeint::Hugeint(long long int num, unsigned int rank)//ToDo
+Hugeint::Hugeint(long long int num, unsigned int rank)
 {
 	head=NULL;
 	Insert(0,0);
@@ -27,47 +27,36 @@ Hugeint::Hugeint(const char *str)
 {
 	head=NULL;
 	Insert(0,0);
+	sign=(str[0]=='-')?-1:1;
 	int num=0,rank=0;
-	int i,r_=1;/////////////////////////////////
+	int i,r_=1;
 	for(i=0;str[i];i++)
 		;
-	for(;i>=0;i++)
+	for(;i>=0;i--)
 	{
 		if(str[i]<='9' && str[i]>='0')
 			{
-				num
-				j++;
+				num+=(str[i]-'0')*r_;
+				r_*=10;
+				if(r_==B)
+				{
+					Insert(num,rank++);
+					r_=1;
+					num=0;
+				}
 			}
 	}
-	// iostream io;
-	// int i,j,count=0;
-	// for(i=0;str[i];i++);
-	// char *tstr=new char [i];
-	// for(i=0,j=0;str[i];i++)
-	// {
-	// 	if(str[i]<='9' && str[i]>='0')
-	// 	{
-	// 		tstr[j]=str[i];
-	// 		j++;
-	// 	}
-	// }
-	// tstr[j]='\0';
-	// for(j=0;tstr[j];j++);
-	// for(i=0;i<=j%9-1;++) io<<str[i];
-	// io<<' ';
-	// for(;str[i];i++)
-	// {
-	// 	if//???
-	// }
+	if(r_!=1) Insert(num,rank);
+	Fix0();
 }
 
 Hugeint::~Hugeint()
 {
+	Node *p=head;
 	while(head)
 	{
 		head=head->next;
-		delete head->prior;
-		head->prior=NULL:
+		delete p;
 	}
 }
 
@@ -109,4 +98,16 @@ void Hugeint::Insert(int num, unsigned int rank)//ToDo
 	}
 	p->n=num;
 	p->r=rank;
+}
+
+void Hugeint::Fix0()
+{
+	Node *end=NULL;
+	for(end=head;end->next!=NULL;end=end->next);
+	while(end->n==0 && end!=head)
+	{
+		end=end->prior;
+		delete end->next;
+		end->next=NULL;
+	}
 }

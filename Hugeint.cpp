@@ -52,11 +52,20 @@ Hugeint::Hugeint(const char *str)
 
 Hugeint & Hugeint::operator=(const Hugeint hi)
 {
+	if(&hi==this) return *this;
 	sign=hi.sign;
-	for(Node *p;p!=NULL;p=p->next)
+	Node *p=NULL;
+	while(head)
+	{
+		p=head;
+		head=head->next;
+		delete p;
+	}
+	for(p=hi.head;p!=NULL;p=p->next)
 	{
 		Insert(p->n,p->r);
-	}//ToDO
+	}
+	return *this;
 }
 
 Hugeint::~Hugeint()
@@ -74,7 +83,7 @@ ostream & operator<<(ostream &out, const Hugeint &hi)
 {
 	if(hi.sign==-1) out<<'-';
 	Node *p=NULL;
-	for(p=hi.head;p->next!=NULL;p=p->next);
+	for(p=hi.head;p->next!=NULL;p=p->next);//ToFixed
 	out<<p->n;
 	p=p->prior;
 	for(;p;p=p->prior)

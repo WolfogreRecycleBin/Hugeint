@@ -50,11 +50,21 @@ Hugeint::Hugeint(const char *str)
 	Fix0();
 }
 
+Hugeint & Hugeint::operator=(const Hugeint hi)
+{
+	sign=hi.sign;
+	for(Node *p;p!=NULL;p=p->next)
+	{
+		Insert(p->n,p->r);
+	}//ToDO
+}
+
 Hugeint::~Hugeint()
 {
-	Node *p=head;
+	Node *p=NULL;
 	while(head)
 	{
+		p=head;
 		head=head->next;
 		delete p;
 	}

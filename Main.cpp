@@ -6,7 +6,7 @@ int main(void)
 	cout<<"hi1:"<<hi1<<endl;
 	Hugeint hi2="-11111111111111111111111111111111111111111111111111111111111111111234567890987654321000";
 	cout<<"hi2:"<<hi2<<endl;
-	hi2=hi1=hi2;
-	cout<<"hi2=hi1:"<<hi2<<endl;
+	cout<<"hi2=hi1:"<<(hi2=hi1)<<endl;
+	cout<<"hi1[2]:"<<hi1[0]<<endl;
 	return 0;
 }

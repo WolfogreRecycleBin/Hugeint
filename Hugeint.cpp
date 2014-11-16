@@ -68,6 +68,36 @@ Hugeint & Hugeint::operator=(const Hugeint & hi)
 	return *this;
 }
 
+int Hugeint::operator[](int index)
+{
+	if(index<1)
+	{
+		cout<<"Error:The index can not be less than 1.";
+		exit(1);
+	}
+	unsigned int rank,r_;
+	rank=index/10;
+	r_=index%10;
+	Node *p=head;
+	while(p->r<=rank)
+	{
+		if(p->r==rank)
+		{
+			int temp=p->n;
+			for(unsigned int i=1;i<r_;i++) temp/=10;
+			temp%=10;
+			return temp;
+		}
+		p=p->next;
+		if(!p)
+			{
+				cout<<"Error:The index does not exist.";
+				exit(2);
+			}
+	}
+	return -1;
+}
+
 Hugeint::~Hugeint()
 {
 	Node *p=NULL;
@@ -95,7 +125,7 @@ ostream & operator<<(ostream &out, const Hugeint &hi)
 
 void Hugeint::Insert(int num, unsigned int rank)//ToDo
 {
-	if(head==NULL)										//无论怎样头节点不可以是空
+	if(head==NULL)										//脦脼脗脹脭玫脩霉脥路陆脷碌茫虏禄驴脡脪脭脢脟驴脮
 	{
 		head=new Node;
 		head->next=head->prior=NULL;

@@ -16,10 +16,10 @@ public:
 	//构造与析构
 	Hugeint(long long num=0, unsigned int rank=0);
 	Hugeint(const char *str);
-	Hugeint & operator=(const Hugeint & hi);//ToDo
-	virtual ~Hugeint();//ToDo
+	Hugeint & operator=(const Hugeint & hi);
+	virtual ~Hugeint();
 	//重载方括号运算符
-	int & operator[](int index);//ToDo
+	int operator[](int index);
 	//重载取负运算符
 	Hugeint operator-();//ToDo
 	//重载算术运算符

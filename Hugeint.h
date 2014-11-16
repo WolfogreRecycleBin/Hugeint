@@ -22,19 +22,19 @@ public:
 	//重载方括号运算符
 	int operator[](int index);
 	//重载取负运算符
-	Hugeint operator-();
+	Hugeint operator-() const;
 	//重载算术运算符
-	friend Hugeint operator+(const Hugeint hi1, const Hugeint hi2);//ToDo
-	friend Hugeint operator-(const Hugeint hi1, const Hugeint hi2);//ToDo
-	friend Hugeint operator*(const Hugeint hi1, const Hugeint hi2);//ToDo
-	friend Hugeint operator/(const Hugeint hi1, const Hugeint hi2);//ToDo
-	friend Hugeint operator%(const Hugeint hi1, const Hugeint hi2);//ToDo
+	friend Hugeint operator+(const Hugeint & hi1, const Hugeint & hi2);//ToDo
+	friend Hugeint operator-(const Hugeint & hi1, const Hugeint & hi2);//ToDo
+	friend Hugeint operator*(const Hugeint & hi1, const Hugeint & hi2);//ToDo
+	friend Hugeint operator/(const Hugeint & hi1, const Hugeint & hi2);//ToDo
+	friend Hugeint operator%(const Hugeint & hi1, const Hugeint & hi2);//ToDo
 	//重载迭代赋值运算符
-	Hugeint & operator+=(const Hugeint hi);//ToDo
-	Hugeint & operator-=(const Hugeint hi);//ToDo
-	Hugeint & operator*=(const Hugeint hi);//ToDo
-	Hugeint & operator/=(const Hugeint hi);//ToDo
-	Hugeint & operator%=(const Hugeint hi);//ToDo
+	Hugeint & operator+=(const Hugeint & hi);//ToDo
+	Hugeint & operator-=(const Hugeint & hi);//ToDo
+	Hugeint & operator*=(const Hugeint & hi);//ToDo
+	Hugeint & operator/=(const Hugeint & hi);//ToDo
+	Hugeint & operator%=(const Hugeint & hi);//ToDo
 	//重载前后增减量运算符
 	Hugeint & operator++();//ToDo
 	Hugeint & operator--();//ToDo

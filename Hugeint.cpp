@@ -100,11 +100,88 @@ int Hugeint::operator[](int index)
 	return 0;
 }
 
-Hugeint Hugeint::operator-()
+Hugeint Hugeint::operator-() const
 {
 	Hugeint temp=*this;
 	temp.sign=-temp.sign;
 	return temp;
+}
+
+Hugeint operator+(const Hugeint & hi1, const Hugeint & hi2)
+{
+	Hugeint ans;
+	unsigned rank=0;
+	int jinwei=0,n1=0,n2=0;
+	int sum=0;
+	Node *p1=NULL,*p2=NULL;
+	if(hi1.sign==hi2.sign) 
+	{
+		ans.sign=hi1.sign;
+		p1=hi1.head;
+		p2=hi2.head;
+		while(p1 || p2 || jinwei)
+		{
+			n1=(p1)?p1->n:0;
+			n2=(p2)?p2->n:0;
+			sum=n1+n2+jinwei;
+			jinwei=sum/B;
+			sum%=B;
+			ans.Insert(sum,rank);
+			if(p1)p1=p1->next;
+			if(p2)p2=p2->next;
+			rank++;
+		}
+		ans.Fix0();
+		return ans;
+	}
+	if(hi1.sign==-1) 
+	{
+		if(-hi1>hi2)
+		{
+			ans.sign=-1;
+			p1=hi1.head;
+			p2=hi2.head;
+		}
+		else
+		{
+			ans.sign=1;
+			p1=hi2.head;
+			p2=hi1.head;
+		}
+	}
+	else
+	{
+		if(-hi2>hi1)
+		{
+			ans.sign=-1;
+			p1=hi2.head;
+			p2=hi1.head;
+		}
+		else
+		{
+			ans.sign=1;
+			p1=hi1.head;
+			p2=hi2.head;
+		}
+	}
+	while(p1 || p2 || jinwei)
+		{
+			n1=(p1)?p1->n:0;
+			n2=(p2)?p2->n:0;
+			sum=n1-n2+jinwei;
+			if(sum<0)
+			{
+				sum+=B;
+				jinwei=-1;
+			}
+			else jinwei=0;
+			ans.Insert(sum,rank);
+			if(p1)p1=p1->next;
+			if(p2)p2=p2->next;
+			rank++;
+		}
+		ans.Fix0();
+		return ans;
 }
 
 Hugeint::~Hugeint()

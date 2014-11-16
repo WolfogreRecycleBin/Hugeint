@@ -4,6 +4,16 @@
 #include <iomanip>
 using namespace std;
 
+Hugeint::Hugeint(const Hugeint & hi)
+{
+	head=NULL;
+	Insert(0,0);
+	sign=hi.sign;
+	for(Node *p=hi.head;p!=NULL;p=p->next)
+	{
+		Insert(p->n,p->r);
+	}
+}
 
 Hugeint::Hugeint(long long num, unsigned int rank)
 {
@@ -106,6 +116,46 @@ Hugeint::~Hugeint()
 		head=head->next;
 		delete p;
 	}
+}
+bool operator==(const Hugeint &hi1, const Hugeint &hi2)
+{
+	if(hi1.sign!=hi2.sign) return false;
+	Node *p1=hi1.head,*p2=hi2.head;
+	for(;p1->next!=NULL;p1=p1->next)
+		;
+	for(;p2->next!=NULL;p2=p2->next)
+		;
+	if(p1->r!=p2->r) return false;
+	for(;p1!=NULL;p1=p1->prior,p2=p2->prior)
+	{
+		if(p1->n!=p2->n) return false;
+	}
+	return true;
+}
+
+bool operator!=(const Hugeint &hi1, const Hugeint &hi2)
+{
+
+}
+
+bool operator> (const Hugeint &hi1, const Hugeint &hi2)
+{
+
+}
+
+bool operator>=(const Hugeint &hi1, const Hugeint &hi2)
+{
+
+}
+
+bool operator< (const Hugeint &hi1, const Hugeint &hi2)
+{
+
+}
+
+bool operator<=(const Hugeint &hi1, const Hugeint &hi2)
+{
+
 }
 
 ostream & operator<<(ostream &out, const Hugeint &hi)

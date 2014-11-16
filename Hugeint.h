@@ -14,6 +14,7 @@ class Hugeint
 {
 public:
 	//构造与析构
+	Hugeint(const Hugeint & hi);
 	Hugeint(long long num=0, unsigned int rank=0);
 	Hugeint(const char *str);
 	Hugeint & operator=(const Hugeint & hi);

@@ -90,6 +90,13 @@ int Hugeint::operator[](int index)
 	return 0;
 }
 
+Hugeint Hugeint::operator-()
+{
+	Hugeint temp=*this;
+	temp.sign=-temp.sign;
+	return temp;
+}
+
 Hugeint::~Hugeint()
 {
 	Node *p=NULL;

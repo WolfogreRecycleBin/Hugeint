@@ -24,22 +24,22 @@ public:
 	//重载取负运算符
 	Hugeint operator-() const;
 	//重载算术运算符
-	friend Hugeint operator+(const Hugeint & hi1, const Hugeint & hi2);//ToDo
-	friend Hugeint operator-(const Hugeint & hi1, const Hugeint & hi2);//ToDo
-	friend Hugeint operator*(const Hugeint & hi1, const Hugeint & hi2);//ToDo
+	friend Hugeint operator+(const Hugeint & hi1, const Hugeint & hi2);
+	friend Hugeint operator-(const Hugeint & hi1, const Hugeint & hi2);
+	friend Hugeint operator*(const Hugeint & hi1, const Hugeint & hi2);
 	friend Hugeint operator/(const Hugeint & hi1, const Hugeint & hi2);//ToDo
 	friend Hugeint operator%(const Hugeint & hi1, const Hugeint & hi2);//ToDo
 	//重载迭代赋值运算符
-	Hugeint & operator+=(const Hugeint & hi);//ToDo
-	Hugeint & operator-=(const Hugeint & hi);//ToDo
-	Hugeint & operator*=(const Hugeint & hi);//ToDo
+	Hugeint & operator+=(const Hugeint & hi);
+	Hugeint & operator-=(const Hugeint & hi);
+	Hugeint & operator*=(const Hugeint & hi);
 	Hugeint & operator/=(const Hugeint & hi);//ToDo
 	Hugeint & operator%=(const Hugeint & hi);//ToDo
 	//重载前后增减量运算符
-	Hugeint & operator++();//ToDo
-	Hugeint & operator--();//ToDo
-	Hugeint operator++(int);//ToDo
-	Hugeint operator--(int);//ToDo
+	Hugeint & operator++();
+	Hugeint & operator--();
+	Hugeint operator++(int);
+	Hugeint operator--(int);
 	//重载关系运算符
 	friend bool operator==(const Hugeint &hi1, const Hugeint &hi2);
 	friend bool operator!=(const Hugeint &hi1, const Hugeint &hi2);

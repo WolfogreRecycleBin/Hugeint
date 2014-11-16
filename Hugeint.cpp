@@ -78,6 +78,17 @@ Hugeint & Hugeint::operator=(const Hugeint & hi)
 	return *this;
 }
 
+Hugeint::~Hugeint()
+{
+	Node *p=NULL;
+	while(head)
+	{
+		p=head;
+		head=head->next;
+		delete p;
+	}
+}
+
 int Hugeint::operator[](int index)
 {
 	if(index<1) return 0;
@@ -184,15 +195,64 @@ Hugeint operator+(const Hugeint & hi1, const Hugeint & hi2)
 		return ans;
 }
 
-Hugeint::~Hugeint()
+Hugeint operator-(const Hugeint & hi1, const Hugeint & hi2)
 {
-	Node *p=NULL;
-	while(head)
-	{
-		p=head;
-		head=head->next;
-		delete p;
-	}
+	return hi1+(-hi2);
+}
+
+Hugeint operator*(const Hugeint & hi1, const Hugeint & hi2)
+{
+	Hugeint ans;
+	Node *p1=NULL,*p2=NULL;
+	for(p1=hi1.head;p1;p1=p1->next)
+		for(p2=hi2.head;p2;p2=p2->next)
+		{
+			long long n1=p1->n,n2=p2->n;
+			Hugeint temp(n1*n2,p1->r+p2->r);\
+			ans+=temp;
+		}
+	ans.sign=hi1.sign*hi2.sign;
+	return ans;
+}
+
+Hugeint & Hugeint::operator+=(const Hugeint & hi)
+{
+	*this=*this+hi;
+	return *this;
+}
+
+Hugeint & Hugeint::operator-=(const Hugeint & hi)
+{
+	*this=*this-hi;
+	return *this;
+}
+Hugeint & Hugeint::operator*=(const Hugeint & hi)
+{
+	*this=*this*hi;
+	return *this;
+}
+
+Hugeint & Hugeint::operator++()
+{
+	*this=*this+1;
+	return *this;
+}
+Hugeint & Hugeint::operator--()
+{
+	*this=*this-1;
+	return *this;
+}
+Hugeint Hugeint::operator++(int)
+{
+	Hugeint temp(*this);
+	*this=*this+1;
+	return temp;
+}
+Hugeint Hugeint::operator--(int)
+{
+	Hugeint temp(*this);
+	*this=*this-1;
+	return temp;
 }
 bool operator==(const Hugeint &hi1, const Hugeint &hi2)
 {

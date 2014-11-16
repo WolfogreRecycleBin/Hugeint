@@ -16,7 +16,7 @@ int main(void)
 		cout<<"ÇëÊäÈë:";cin>>hi1>>hi2;
 		cout<<hi1<<endl;
 		cout<<hi2<<endl;
-		cout<<"hi1+hi2:"<<hi1+hi2<<endl;
+		cout<<"hi1*hi2:"<<hi1*hi2<<endl;
 	}
 	return 0;
 }

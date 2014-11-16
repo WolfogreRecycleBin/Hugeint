@@ -208,12 +208,39 @@ Hugeint operator*(const Hugeint & hi1, const Hugeint & hi2)
 		for(p2=hi2.head;p2;p2=p2->next)
 		{
 			long long n1=p1->n,n2=p2->n;
-			Hugeint temp(n1*n2,p1->r+p2->r);\
+			Hugeint temp(n1*n2,p1->r+p2->r);
 			ans+=temp;
 		}
 	ans.sign=hi1.sign*hi2.sign;
 	return ans;
 }
+
+// Hugeint operator/(const Hugeint & hi1, const Hugeint & hi2)
+// {
+// 	Hugeint temphi1=hi1,temphi2=hi2,ans;
+// 	unsigned upr=0;
+// 	while(temphi1>=temphi2 || upr!=0)
+// 	{
+// 		if(temphi2<=temphi1 && temphi2*10>temphi1)
+// 		{
+// 			temphi1-=temphi1;
+// 			unsigned int upr10=1;
+// 			for(int i=0;i<upr%9)
+// 			Hugeint temp(1*upr10,upr/9)
+// 			ans+=temp;
+// 			continue;
+// 		}
+// 		if(temphi2>temphi1)
+// 		{
+// 			temphi1
+// 		}
+// 	}
+// }
+
+// Hugeint operator%(const Hugeint & hi1, const Hugeint & hi2)
+// {
+
+// }
 
 Hugeint & Hugeint::operator+=(const Hugeint & hi)
 {

@@ -14,9 +14,9 @@ class Hugeint
 {
 public:
 	//构造与析构
-	Hugeint(long long int num=0, unsigned int rank=0);
+	Hugeint(long long num=0, unsigned int rank=0);
 	Hugeint(const char *str);
-	Hugeint & operator=(const Hugeint hi);//ToDo
+	Hugeint & operator=(const Hugeint & hi);//ToDo
 	virtual ~Hugeint();//ToDo
 	//重载方括号运算符
 	int & operator[](int index);//ToDo

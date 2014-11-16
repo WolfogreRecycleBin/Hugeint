@@ -5,7 +5,7 @@
 using namespace std;
 
 
-Hugeint::Hugeint(long long int num, unsigned int rank)
+Hugeint::Hugeint(long long num, unsigned int rank)
 {
 	head=NULL;
 	Insert(0,0);
@@ -50,7 +50,7 @@ Hugeint::Hugeint(const char *str)
 	Fix0();
 }
 
-Hugeint & Hugeint::operator=(const Hugeint hi)
+Hugeint & Hugeint::operator=(const Hugeint & hi)
 {
 	if(&hi==this) return *this;
 	sign=hi.sign;
@@ -83,7 +83,7 @@ ostream & operator<<(ostream &out, const Hugeint &hi)
 {
 	if(hi.sign==-1) out<<'-';
 	Node *p=NULL;
-	for(p=hi.head;p->next!=NULL;p=p->next);//ToFixed
+	for(p=hi.head;p->next!=NULL;p=p->next);
 	out<<p->n;
 	p=p->prior;
 	for(;p;p=p->prior)

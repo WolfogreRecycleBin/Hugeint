@@ -9,7 +9,7 @@ int main(void)
 	cout<<"hi1=hi2:"<<(hi1=hi2)<<endl;
 	cout<<"hi2[18]:"<<hi2[8]<<endl;
 	cout<<-hi2<<endl;
-	if(hi1==hi2) cout<<"YES"<<endl;
+	if(hi1<hi1) cout<<"YES"<<endl;
 	else cout<<"NO"<<endl;
 	return 0;
 }

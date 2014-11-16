@@ -135,27 +135,42 @@ bool operator==(const Hugeint &hi1, const Hugeint &hi2)
 
 bool operator!=(const Hugeint &hi1, const Hugeint &hi2)
 {
-
+	return !(hi1==hi2);
 }
 
 bool operator> (const Hugeint &hi1, const Hugeint &hi2)
 {
-
+	if(hi1.sign>hi2.sign) return true;
+	Node *p1=hi1.head,*p2=hi2.head;
+	for(;p1->next!=NULL;p1=p1->next)
+		;
+	for(;p2->next!=NULL;p2=p2->next)
+		;
+	if(p1->r>p2->r) return true;
+	for(;p1!=NULL;p1=p1->prior,p2=p2->prior)
+	{
+		if(p1->n>p2->n) return true;
+	}
+	return false;
 }
 
 bool operator>=(const Hugeint &hi1, const Hugeint &hi2)
 {
-
+	if(hi1==hi2) return true;
+	if(hi1>hi2) return true;
+	return false;
 }
 
 bool operator< (const Hugeint &hi1, const Hugeint &hi2)
 {
-
+	return !(hi1>=hi2);
 }
 
 bool operator<=(const Hugeint &hi1, const Hugeint &hi2)
 {
-
+	if(hi1==hi2) return true;
+	if(hi1<hi2) return true;
+	return false;
 }
 
 ostream & operator<<(ostream &out, const Hugeint &hi)

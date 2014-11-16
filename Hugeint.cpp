@@ -70,32 +70,24 @@ Hugeint & Hugeint::operator=(const Hugeint & hi)
 
 int Hugeint::operator[](int index)
 {
-	if(index<1)
-	{
-		cout<<"Error:The index can not be less than 1.";
-		exit(1);
-	}
+	if(index<1) return 0;
 	unsigned int rank,r_;
-	rank=index/10;
-	r_=index%10;
+	rank=(index-1)/9;
+	r_=(index-1)%9;
 	Node *p=head;
 	while(p->r<=rank)
 	{
 		if(p->r==rank)
 		{
 			int temp=p->n;
-			for(unsigned int i=1;i<r_;i++) temp/=10;
+			for(unsigned int i=0;i<r_;i++) temp/=10;
 			temp%=10;
-			return temp;
+			return temp*sign;
 		}
 		p=p->next;
-		if(!p)
-			{
-				cout<<"Error:The index does not exist.";
-				exit(2);
-			}
+		if(!p) break;
 	}
-	return -1;
+	return 0;
 }
 
 Hugeint::~Hugeint()

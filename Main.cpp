@@ -11,5 +11,8 @@ int main(void)
 	cout<<-hi2<<endl;
 	if(hi1<hi1) cout<<"YES"<<endl;
 	else cout<<"NO"<<endl;
+	cout<<"ÇëÊäÈë:";cin>>hi1>>hi2;
+	cout<<hi1<<endl;
+	cout<<hi2<<endl;
 	return 0;
 }

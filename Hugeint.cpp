@@ -187,9 +187,18 @@ ostream & operator<<(ostream &out, const Hugeint &hi)
 	return out;
 }
 
-void Hugeint::Insert(int num, unsigned int rank)//ToDo
+istream & operator>>(istream &in, Hugeint &hi)
 {
-	if(head==NULL)										//脦脼脗脹脭玫脩霉脥路陆脷碌茫虏禄驴脡脪脭脢脟驴脮
+	char str[1024*1024];
+	in>>str;
+	Hugeint temp(str);
+	hi=temp;
+	return in;
+}
+
+void Hugeint::Insert(int num, unsigned int rank)
+{
+	if(head==NULL)
 	{
 		head=new Node;
 		head->next=head->prior=NULL;
@@ -215,6 +224,7 @@ void Hugeint::Insert(int num, unsigned int rank)//ToDo
 
 void Hugeint::Fix0()
 {
+	//修正高位多余的0
 	Node *end=NULL;
 	for(end=head;end->next!=NULL;end=end->next);
 	while(end->n==0 && end!=head)
@@ -223,4 +233,6 @@ void Hugeint::Fix0()
 		delete end->next;
 		end->next=NULL;
 	}
+	//修正0的正负号
+	if(end==head && head->n==0) sign=1;
 }

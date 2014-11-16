@@ -40,19 +40,18 @@ public:
 	Hugeint & operator--();//ToDo
 	Hugeint operator++(int);//ToDo
 	Hugeint operator--(int);//ToDo
-	//重载关系运算
-	friend bool operator==(const Hugeint &hi1, const Hugeint &hi2);//ToDo
-	friend bool operator!=(const Hugeint &hi1, const Hugeint &hi2);//ToDo
-	friend bool operator> (const Hugeint &hi1, const Hugeint &hi2);//ToDo
-	friend bool operator>=(const Hugeint &hi1, const Hugeint &hi2);//ToDo
-	friend bool operator< (const Hugeint &hi1, const Hugeint &hi2);//ToDo
-	friend bool operator<=(const Hugeint &hi1, const Hugeint &hi2);//ToDo
+	//重载关系运算符
+	friend bool operator==(const Hugeint &hi1, const Hugeint &hi2);
+	friend bool operator!=(const Hugeint &hi1, const Hugeint &hi2);
+	friend bool operator> (const Hugeint &hi1, const Hugeint &hi2);
+	friend bool operator>=(const Hugeint &hi1, const Hugeint &hi2);
+	friend bool operator< (const Hugeint &hi1, const Hugeint &hi2);
+	friend bool operator<=(const Hugeint &hi1, const Hugeint &hi2);
 	//重载I/O流运算符
 	friend ostream & operator<<(ostream &out, const Hugeint &hi);
-	friend istream & operator>>(istream &in, Hugeint &hi);//ToDo
+	friend istream & operator>>(istream &in, Hugeint &hi);
 protected:
 	void Insert(int num, unsigned int rank);				//将nd插入到rank阶数应该存在的位置，可增、改
-	Node & Find(unsigned int rank=0);//ToDo						//寻找返回rank阶数
 	void Fix0();											//修正链表
 private:
 	int sign;												//1表示正数，-1表示负数

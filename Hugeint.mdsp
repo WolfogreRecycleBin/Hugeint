@@ -80,13 +80,11 @@ resourceIncludeDirectory=
 extraResourceOptions=
 
 [Source]
-1=Hugeint.cpp
-2=Main.cpp
+1=Main.cpp
 [Header]
 1=Hugeint.h
 [Resource]
 [Other]
 [History]
 Main.cpp,0
-Hugeint.cpp,0
-Hugeint.h,0
+Hugeint.h,7686
